@@ -101,6 +101,7 @@ function generatePassword() {
       password = password + value;
     } 
   }
+  
   return password;
 }
 

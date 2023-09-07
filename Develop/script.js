@@ -14,8 +14,32 @@ var numbers = () => {
   return num[Math.floor(Math.random() * num.length)];
 }
 var symbols = () => {
-  var sym = ["!","@","#","$","%","^","&","*","(",")","-","_","+","=","/","<",">","?","~","."];
-  return sym[Math.floor(Math.random * sym.length)];
+  var sym = [
+    '@',
+    '%',
+    '+',
+    '\\',
+    '/',
+    "'",
+    '!',
+    '#',
+    '$',
+    '^',
+    '?',
+    ':',
+    ',',
+    ')',
+    '(',
+    '}',
+    '{',
+    ']',
+    '[',
+    '~',
+    '-',
+    '_',
+    '.',
+  ];
+  return sym[Math.floor(Math.random()* sym.length)];
 }
 
 function generatePassword() {
@@ -23,10 +47,15 @@ function generatePassword() {
   var password = '';
 
   var passwordLength = parseInt(prompt('Password Length'));
-  if (passwordLength < 8 || passwordLength > 128){
-    alert ("Incorrect amount, password must be between 8 characters and no more than 128");
+  if (passwordLength < 8) {
+    alert ("Incorrect amount, password must be at least 8 characters");
     return null
   }
+  if (passwordLength > 128) {
+    alert ("Incorrect amount, password can not exceed 128 characters");
+    return null
+  }
+
   var haveLowerCase = confirm("Include Lowercase?");
 
   if(haveLowerCase) {
@@ -71,9 +100,8 @@ function generatePassword() {
       var value = symbols();
       password = password + value;
     } 
-    return password;
-
-}
+  }
+  return password;
 }
 
 // Write password to the #password input

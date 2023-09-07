@@ -47,11 +47,19 @@ function generatePassword() {
   var password = '';
 
   var passwordLength = parseInt(prompt('Password Length'));
-  if (passwordLength < 8) {
+
+  console.log(passwordLength, typeof passwordLength);
+
+  if(isNaN(passwordLength)) {
+    alert ("Password must be a number");
+    return null
+  }
+
+  if(passwordLength < 8) {
     alert ("Incorrect amount, password must be at least 8 characters");
     return null
   }
-  if (passwordLength > 128) {
+  if(passwordLength > 128) {
     alert ("Incorrect amount, password can not exceed 128 characters");
     return null
   }
@@ -101,7 +109,7 @@ function generatePassword() {
       password = password + value;
     } 
   }
-  
+
   return password;
 }
 

@@ -57,7 +57,21 @@ function generatePassword() {
       password = password + value;
     } 
 
-  return password;
+    if (randomchoice === "upperCaseletters") {
+      var value = upperCaseletters();
+      password = password + value;
+    } 
+
+    if (randomchoice === "numbers") {
+      var value = numbers();
+      password = password + value;
+    } 
+
+    if (randomchoice === "symbols") {
+      var value = symbols();
+      password = password + value;
+    } 
+    return password;
 
 }
 }
